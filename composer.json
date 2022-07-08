@@ -1,0 +1,45 @@
+{
+    "name": "wiriane-cintia/buscador-cursos",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "WirianeCintia\\BuscadorCursos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "wiriane-cintia"
+        }
+    ],
+    "require": {
+        "symfony/css-selector": "^6.0",
+        "guzzlehttp/guzzle": "*",
+        "symfony/dom-crawler": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "WirianeCintia\\BuscadorDeCursos\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "squizlabs/php_codesniffer": "^3.7",
+        "phan/phan": "^5.3"
+    },
+    "scripts": {
+        "test": "phpunit tests\\TestBuscadorDeCursos.php",
+        "cs": "phpcs --standard=PSR12 src/",
+        "phan": "phan --allow-polyfill-parser",
+        "check": [
+            "@phan",
+            "@cs",
+            "@test"
+        ],
+        "post-update-cmd": [
+            "@test"
+        ]
+    },
+    "scripts-descriptions": {
+        "check": "Roda as verificações do código. PHAN, PHPCS e PHPUNIT"
+    }
+}
